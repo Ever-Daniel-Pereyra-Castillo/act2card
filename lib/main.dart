@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+void main() {
+  runApp(MyApp());
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+    const textStyle = TextStyle(fontSize: 16);
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Card en columna'),
+        ),
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                elevation: 5.0, // Sombra
+                color: Color(0xFFFFCCCB),
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Text('Dato 1: Información importante', style: textStyle),
+                      SizedBox(height: 8),
+                      Text('Dato 2: Más detalles',
+                          style: TextStyle(fontSize: 16)),
+                      SizedBox(height: 8),
+                      Text('Dato 3: Último dato',
+                          style: TextStyle(fontSize: 16)),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
